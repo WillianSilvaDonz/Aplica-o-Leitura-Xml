@@ -5,6 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using TesteEmissaoData.Entities;
+using TesteEmissaoData.Repositories;
 using TesteEmissaoView.Models;
 
 namespace TesteEmissaoView.Controllers
@@ -12,14 +14,17 @@ namespace TesteEmissaoView.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly DocumentoxmlRepository _repository;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, DocumentoxmlRepository repository)
         {
+            _repository = repository;
             _logger = logger;
         }
 
         public IActionResult Index()
         {
+            //IEnumerable<DocumentoXml> documento = _repository.Get();
             return View();
         }
 
