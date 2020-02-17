@@ -1,4 +1,8 @@
 .vs/*
+TesteEmissaoApi/obj/*
+TesteEmissaoApi/bin/*
+TesteEmissaoData/obj/*
 TesteEmissaoData/bin/*
+TesteEmissaoView/bin/*
 TesteEmissaoView/obj/*
 TesteEmissaoView/obj/Debug/*
