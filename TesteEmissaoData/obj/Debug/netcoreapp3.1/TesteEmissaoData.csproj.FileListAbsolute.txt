@@ -1,6 +1,5 @@
 D:\WorkSpace\TesteNovaTecnologia\TesteEmissaoSimples\TesteEmissaoData\bin\Debug\netcoreapp3.1\TesteEmissaoData.deps.json
 D:\WorkSpace\TesteNovaTecnologia\TesteEmissaoSimples\TesteEmissaoData\bin\Debug\netcoreapp3.1\TesteEmissaoData.dll
-D:\WorkSpace\TesteNovaTecnologia\TesteEmissaoSimples\TesteEmissaoData\obj\Debug\netcoreapp3.1\TesteEmissaoData.csprojAssemblyReference.cache
 D:\WorkSpace\TesteNovaTecnologia\TesteEmissaoSimples\TesteEmissaoData\obj\Debug\netcoreapp3.1\TesteEmissaoData.AssemblyInfoInputs.cache
 D:\WorkSpace\TesteNovaTecnologia\TesteEmissaoSimples\TesteEmissaoData\obj\Debug\netcoreapp3.1\TesteEmissaoData.AssemblyInfo.cs
 D:\WorkSpace\TesteNovaTecnologia\TesteEmissaoSimples\TesteEmissaoData\bin\Debug\netcoreapp3.1\TesteEmissaoData.pdb
@@ -18,3 +17,4 @@ D:\Workspace\TesteAplication\TesteEmissaoData\obj\Debug\netcoreapp3.1\TesteEmiss
 D:\Workspace\TesteAplication\TesteEmissaoData\obj\Debug\netcoreapp3.1\TesteEmissaoData.AssemblyInfo.cs
 D:\Workspace\TesteAplication\TesteEmissaoData\obj\Debug\netcoreapp3.1\TesteEmissaoData.dll
 D:\Workspace\TesteAplication\TesteEmissaoData\obj\Debug\netcoreapp3.1\TesteEmissaoData.pdb
+D:\WorkSpace\TesteNovaTecnologia\TesteEmissaoSimples\TesteEmissaoData\obj\Debug\netcoreapp3.1\TesteEmissaoData.csprojAssemblyReference.cache
