@@ -1,1 +1,4 @@
 .vs/*
+TesteEmissaoData/bin/*
+TesteEmissaoView/obj/*
+TesteEmissaoView/obj/Debug/*
