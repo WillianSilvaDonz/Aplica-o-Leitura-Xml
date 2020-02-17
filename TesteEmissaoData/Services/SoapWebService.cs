@@ -5,36 +5,47 @@ using EmissorNfse.Module.Utils;
 using System.IO;
 using EmissorNfse.SoapModules.Utils;
 using System;
+using System.Xml;
 
 namespace TesteEmissaoData.Services
 {
     public class SoapWebService
     {
         #region Private Readonly Fields
+        /// <summary>
+        /// Certificado de autenticação do WebService.
+        /// </summary>
+        private readonly X509Certificate2 certificado;
 
-        private readonly X509Certificate2 _certificado;
-
-        private readonly IConfigurationSection _configuration;
+        /// <summary>
+        /// WSDL do WebService
+        /// </summary>
+        private readonly string wsdl;
 
         #endregion
 
         #region Constructors
-        public SoapWebService(IConfigurationSection configuration, X509Certificate2 certificado)
+        public SoapWebService(string wsdl, X509Certificate2 certificado)
         {
-            _certificado = certificado;
-            _configuration = configuration;
+            this.certificado = certificado;
+            this.wsdl = wsdl;
 
         }
+        /// <summary>
+        /// Constrói e envia a mensagem Soap
+        /// </summary>
+        /// <param name="action">Soap Action que identifica a operação do Web Service a ser executada</param>
+        /// <param name="body">Conteúdo do Body da mensagem Soap</param>
+        /// <returns>O conteúdo do Body da mensagem Soap de retorno</returns>
         #endregion
 
         #region Private Methods
         private string CallWebService(string action, string body)
         {
-            string soapResult;
+            string soapResult = "";
             try
             {
-                var envelope = _configuration.GetSection($"{action}:Envelope").Value;
-                var soapEnvelopeXml = XmlUtils.GetXmlDocument(envelope.Replace("%#BODY#%", body));
+                var soapEnvelopeXml = CreateSoapEnvelope(body);
                 var webRequest = CreateWebRequest(action);
                 var stream = webRequest.GetRequestStream();
                 soapEnvelopeXml.Save(stream);
@@ -43,7 +54,7 @@ namespace TesteEmissaoData.Services
 
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
-                    soapResult = soapResult.ToXDocument().Root.Value;
+                    soapResult = soapResult.ToXDocument().Root.Value.ToString().Replace("&lt;", "<").Replace("&gt;", ">");
                 }
                 else
                 {
@@ -61,31 +72,51 @@ namespace TesteEmissaoData.Services
                 var error = reader.ReadToEnd();
                 throw new Exception(error);
             }
-
             return soapResult;
         }
 
+        /// <summary>
+		/// Cria e prepara o objeto HttpWebRequest a ser utilizado no envio da mensagem Soap
+		/// </summary>
+		/// <param name="action">Soap Action que identifica a operação do Web Service a ser executada</param>
+		/// <returns>Uma instância de HttpWebRequest</returns>
         private HttpWebRequest CreateWebRequest(string action)
         {
-            var wsdl = _configuration.GetSection("Wsdl").Value;
-
             HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(wsdl);
-
             webRequest.Headers.Add("SOAPAction", action);
-            webRequest.ClientCertificates.Add(_certificado);
+            webRequest.ContentType = "text/xml;charset=\"utf-8\"";
+            webRequest.ClientCertificates.Add(certificado);
+            webRequest.UserAgent = "Client Cert Sample";
             webRequest.Accept = "text/xml";
             webRequest.Method = "POST";
-            webRequest.ContentType = @"text/xml;charset=""utf-8""";
-
             return webRequest;
         }
 
+        /// <summary>
+		/// Cria uma mensagem Soap a partir de um conteúdo Body recebido.
+		/// </summary>
+		/// <param name="action">Body da mensagem Soap</param>
+		/// <returns>Uma instância de XmlDocument contendo a mensagem Soap</returns>
+        private XmlDocument CreateSoapEnvelope(string body)
+        {
+            return XmlUtils.GetXmlDocument("<S:Envelope xmlns:S=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ns2=\"http://service.nfse.integracao.ws.publica/\"><S:Body><ns2:RecepcionarLoteRps><XML>" +
+                body +
+                "</XML></ns2:RecepcionarLoteRps></S:Body></S:Envelope>");
+        }
         #endregion
 
         #region Public Override Methods
-        public string ExecuteMethod(string methodName, string body)
+        /// <summary>
+        /// Executa um método do WebService usando o protocolo Soap
+        /// </summary>
+        /// <typeparam name="T">Tipo do objeto de retorno.</typeparam>
+        /// <param name="methodName">Nome do método que será executado.</param>
+        /// <param name="parameters">Parametros do método que será executado.</param>		
+        /// <returns>Instancia de T.</returns>
+        public T ExecuteMethod<T>(string methodName, params object[] parameters)
         {
-            return CallWebService(methodName, body);
+            var res = (object)CallWebService(methodName, parameters[0].ToString());
+            return (T)res;
         }
         #endregion
     }
