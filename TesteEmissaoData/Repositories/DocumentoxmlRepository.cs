@@ -20,6 +20,11 @@ namespace TesteEmissaoData.Repositories
             return _context.DocumentoXml;
         }
 
+        public DocumentoXml Get(Int32 id)
+        {
+            return _context.DocumentoXml.Find(id);
+        }
+
         public void Create(DocumentoXml documento)
         {
             _context.DocumentoXml.Add(documento);

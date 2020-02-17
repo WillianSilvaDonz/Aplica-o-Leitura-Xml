@@ -13,7 +13,7 @@ namespace TesteEmissaoData.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql(@"server=localhost;Port=5432;user id=postgres;password=######;database=DbXml");
+            optionsBuilder.UseNpgsql(@"server=localhost;Port=5432;user id=postgres;password=tuning;database=DbXml");
         }
 
         protected override void OnModelCreating(ModelBuilder builder)

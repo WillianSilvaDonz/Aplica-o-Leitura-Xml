@@ -8,25 +8,25 @@ namespace TesteEmissaoData.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Documentoxml",
+                name: "documentoxml",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Xml = table.Column<string>(type: "text", nullable: false),
-                    Cidade = table.Column<string>(type: "character(100)", maxLength: 100, nullable: false),
-                    CodCidade = table.Column<string>(type: "character(10)", maxLength: 10, nullable: false)
+                    xml = table.Column<string>(type: "text", nullable: false),
+                    cidade = table.Column<string>(type: "character(100)", maxLength: 100, nullable: false),
+                    codcidade = table.Column<string>(type: "character(10)", maxLength: 10, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Documentoxml", x => x.Id);
+                    table.PrimaryKey("PK_documentoxml", x => x.Id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Documentoxml");
+                name: "documentoxml");
         }
     }
 }

@@ -27,21 +27,24 @@ namespace TesteEmissaoData.Migrations
 
                     b.Property<string>("Cidade")
                         .IsRequired()
+                        .HasColumnName("cidade")
                         .HasColumnType("character(100)")
                         .HasMaxLength(100);
 
                     b.Property<string>("CodCidade")
                         .IsRequired()
+                        .HasColumnName("codcidade")
                         .HasColumnType("character(10)")
                         .HasMaxLength(10);
 
                     b.Property<string>("Xml")
                         .IsRequired()
+                        .HasColumnName("xml")
                         .HasColumnType("text");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Documentoxml");
+                    b.ToTable("documentoxml");
                 });
 #pragma warning restore 612, 618
         }
