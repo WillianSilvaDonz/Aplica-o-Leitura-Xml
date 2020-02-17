@@ -28,6 +28,21 @@ namespace TesteEmissaoView.Controllers
             return View();
         }
 
+        [HttpPost]
+        [Route("home/savexml")]
+        public IActionResult saveXml(string xml, string cidade, string codcidade)
+        {
+            DocumentoXml teste = new DocumentoXml()
+            {
+                Xml = xml,
+                Cidade = cidade,
+                CodCidade = codcidade
+            };
+            _repository.Create(teste);
+
+            return RedirectToAction("Index");
+        }
+
         public IActionResult Privacy()
         {
             return View();

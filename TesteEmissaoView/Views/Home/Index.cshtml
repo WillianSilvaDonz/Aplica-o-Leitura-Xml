@@ -3,6 +3,12 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <form action="home/savexml" method="post">
+        <label>Informe o XML:</label>
+        <textarea cols="150" name="xml"></textarea>
+        <input type="text" name="cidade" placeholder="cidade" />
+        <input type="text" name="codcidade" placeholder="Código da cidade IBGE" />
+
+        <button type="submit">Salvar</button>
+    </form>
 </div>
