@@ -1,0 +1,89 @@
+<EnviarLoteRpsEnvio xmlns="http://www.publica.inf.br">
+    <LoteRps versao="1.00">
+        <NumeroLote>78073</NumeroLote>
+        <Cnpj>27084715000126</Cnpj>
+        <InscricaoMunicipal>532223</InscricaoMunicipal>
+        <QuantidadeRps>1</QuantidadeRps>
+        <ListaRps>
+            <Rps>
+                <InfRps id="rps780732">
+                    <IdentificacaoRps>
+                        <Numero>601</Numero>
+                        <Serie>2</Serie>
+                        <Tipo>1</Tipo>
+                    </IdentificacaoRps>
+                    <DataEmissao>2020-02-17T00:00:00</DataEmissao>
+                    <NaturezaOperacao>701</NaturezaOperacao>
+                    <OptanteSimplesNacional>1</OptanteSimplesNacional>
+                    <IncentivadorCultural>2</IncentivadorCultural>
+                    <Status>1</Status>
+                    <Servico>
+                        <Valores>
+                            <ValorServicos>1.00</ValorServicos>
+                            <IssRetido>2</IssRetido>
+                            <ValorIss>0.00</ValorIss>
+                            <BaseCalculo>1.00</BaseCalculo>
+                            <Aliquota>0.00</Aliquota>
+                            <ValorLiquidoNfse>1.00</ValorLiquidoNfse>
+                        </Valores>
+                        <ItemListaServico>01.07</ItemListaServico>
+                        <Discriminacao>- SERVICO DE SUPORTE PUBLICA. </Discriminacao>
+                        <CodigoMunicipio>4204202</CodigoMunicipio>
+                    </Servico>
+                    <Prestador>
+                        <Cnpj>27084715000126</Cnpj>
+                        <InscricaoMunicipal>532223</InscricaoMunicipal>
+                    </Prestador>
+                    <Tomador>
+                        <IdentificacaoTomador>
+                            <CpfCnpj>
+                                <Cnpj>09633326000120</Cnpj>
+                            </CpfCnpj>
+                        </IdentificacaoTomador>
+                        <RazaoSocial>QUESTOR SISTEMAS</RazaoSocial>
+                        <Endereco>
+                            <Endereco>Rua Sao Jose</Endereco>
+                            <Numero>0</Numero>
+                            <Bairro>Santa Maria1</Bairro>
+                            <CodigoMunicipio>4204202</CodigoMunicipio>
+                            <Uf>SC</Uf>
+                            <Cep>89812250</Cep>
+                        </Endereco>
+                        <Contato>
+                            <Email>willian.silva@questores.com.br</Email>
+                        </Contato>
+                    </Tomador>
+                    <CondicaoPagamento>
+                        <Parcelas>
+                            <Condicao>1</Condicao>
+                            <Parcela>1</Parcela>
+                            <Valor>1.00</Valor>
+                            <DataVencimento>2020-03-15</DataVencimento>
+                        </Parcelas>
+                    </CondicaoPagamento>
+                </InfRps>
+                <Signature Id="Ass_rps780732" 
+                    xmlns="http://www.w3.org/2000/09/xmldsig#">
+                    <SignedInfo>
+                        <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
+                        <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" />
+                        <Reference URI="#rps780732">
+                            <Transforms>
+                                <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+                                <Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
+                            </Transforms>
+                            <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+                            <DigestValue>a8JkxF8yWhBc1fGfjfB1w8XMR9Ntbju5JMK5Llp+6zw=</DigestValue>
+                        </Reference>
+                    </SignedInfo>
+                    <SignatureValue>YqsMdjcFV3q3jIASnYQX5v+ie0LQXyx/C2Bon6Tq0MsrsqIr8ZZCiGQsFqc1NnGYARblMeV1IRiLDVtr0qGYyPvLjqDCoSpIIyPxwpwB0FhwQnnCiNhaYGbQBqYLraFL1lQcGA9oFnn4SdSgjeBGcM9lXxrEq0g7cHayWbaKbMey+4Eo7ugIW6KoMJR+vGJ1SHtgPER5MVmGtoMGKFJEtiqfOp3R5fJ52cMlYUC0w0taz9D02GXVborO7vqCFFXSoWyVp2oA3m7/xXMNv2dvdexWSFq0D6K0+kIB7RuNjbYDylydaWYiOBaWd47C7K9KqSU2XCx1e8gJMim6skfJgw==</SignatureValue>
+                    <KeyInfo>
+                        <X509Data>
+                            <X509Certificate>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</X509Certificate>
+                        </X509Data>
+                    </KeyInfo>
+                </Signature>
+            </Rps>
+        </ListaRps>
+    </LoteRps>
+</EnviarLoteRpsEnvio>
