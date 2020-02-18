@@ -4,6 +4,8 @@ namespace TesteEmissaoData.Resources
 {
     public class NfseTransmitirLote
     {
+        public string CodCidade { get; set; }
+
         public string NumeroLote { get; set; }
 
         public string Modulo { get; set; }

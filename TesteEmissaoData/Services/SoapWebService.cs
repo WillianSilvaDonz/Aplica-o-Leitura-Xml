@@ -99,9 +99,9 @@ namespace TesteEmissaoData.Services
 		/// <returns>Uma instância de XmlDocument contendo a mensagem Soap</returns>
         private XmlDocument CreateSoapEnvelope(string body)
         {
-            return XmlUtils.GetXmlDocument("<S:Envelope xmlns:S=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ns2=\"http://service.nfse.integracao.ws.publica/\"><S:Body><ns2:RecepcionarLoteRps><XML>" +
+            return XmlUtils.GetXmlDocument("<S:Envelope xmlns:S=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ns2=\"http://service.nfse.integracao.ws.publica/\"><S:Body><ns2:RecepcionarLoteRps><XML><![CDATA[" +
                 body +
-                "</XML></ns2:RecepcionarLoteRps></S:Body></S:Envelope>");
+                "]]></XML></ns2:RecepcionarLoteRps></S:Body></S:Envelope>");
         }
         #endregion
 

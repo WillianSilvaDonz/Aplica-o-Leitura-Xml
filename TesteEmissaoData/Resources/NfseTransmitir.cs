@@ -133,6 +133,8 @@ namespace TesteEmissaoData.Resources
 		/// </summary>
         public bool UsaTributacaoISSQNNfse1 { get; set; }
 
+        public string? IdAssinatura { get; set; }
+
         #endregion
 
         #region Constructors
