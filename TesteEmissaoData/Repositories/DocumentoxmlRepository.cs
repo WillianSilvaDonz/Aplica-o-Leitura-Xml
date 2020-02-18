@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using TesteEmissaoData.Data;
 using TesteEmissaoData.Entities;
@@ -23,6 +24,11 @@ namespace TesteEmissaoData.Repositories
         public DocumentoXml Get(Int32 id)
         {
             return _context.DocumentoXml.Find(id);
+        }
+
+        public DocumentoXml GetCidade(string CodCidade)
+        {
+            return _context.DocumentoXml.Where(d => d.CodCidade == CodCidade).FirstOrDefault<DocumentoXml>();
         }
 
         public void Create(DocumentoXml documento)

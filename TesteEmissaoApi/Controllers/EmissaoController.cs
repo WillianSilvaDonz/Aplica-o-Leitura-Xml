@@ -22,7 +22,7 @@ namespace TesteEmissaoApi.Controllers
         public DocumentoXml Emissao(NfseTransmitirLote lote)
         {
 
-            DocumentoXml documento = _repository.Get(1);
+            DocumentoXml documento = _repository.GetCidade(lote.Modulo);
 
             string xml = documento.Xml;
             xml = xml.Replace("#NumeroLote#", lote.NumeroLote);
