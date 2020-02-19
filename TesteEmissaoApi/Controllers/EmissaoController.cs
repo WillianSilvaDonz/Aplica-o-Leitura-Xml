@@ -24,7 +24,7 @@ namespace TesteEmissaoApi.Controllers
         [HttpPost]
         public string Emissao(NfseTransmitirLote lote)
         {
-            DocumentoXml documento = _repository.GetCidade(lote.Modulo);
+            DocumentoXml documento = _repository.Get(4);
 
             string xml = documento.Xml;
             xml = xml.Replace("@NumeroLote", lote.NumeroLote);
