@@ -1,5 +1,6 @@
 ﻿using EmissorNfse.Domain.Enums;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 
 namespace TesteEmissaoData.Resources
 {
@@ -9,6 +10,7 @@ namespace TesteEmissaoData.Resources
 
         public int QuantidadeParcelas { get; set; }
 
-        public IList<ParcelaNota> Parcelas { get; set; } 
+        [XmlElement]
+        public ParcelaNota[] Parcelas { get; set; } 
     }
 }

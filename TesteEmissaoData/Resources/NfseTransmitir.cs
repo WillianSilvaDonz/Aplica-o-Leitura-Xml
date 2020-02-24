@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using EmissorNfse.Domain.Enum;
 using EmissorNfse.Domain.Enums;
 
@@ -73,16 +74,19 @@ namespace TesteEmissaoData.Resources
         /// <summary>
         /// Incentivo Fiscal 
         /// </summary>
+        [XmlIgnore]
         public IncentivoFiscal IncentivoFiscal { get; set; }
 
         /// <summary>
         /// Empresa optante pelo simples Nacional.
         /// </summary>
+        [XmlIgnore]
         public Confirmacao OptanteSimplesNacional { get; set; }
 
         /// <summary>
         /// Empresa participante de incentivo cultural.
         /// </summary>
+        [XmlIgnore]
         public Confirmacao IncentivadorCultural { get; set; }
 
         /// <summary>
@@ -93,6 +97,7 @@ namespace TesteEmissaoData.Resources
         /// <summary>
         /// Tipo do RPS.
         /// </summary>
+        [XmlIgnore]
         public Status Status { get; set; }
 
         /// <summary>
@@ -123,7 +128,8 @@ namespace TesteEmissaoData.Resources
         /// <summary>
 		/// Serviços prestados.
 		/// </summary>
-		public List<Servico> Servicos { get; set; }
+        [XmlElement]
+        public Servico[] Servicos { get; set; }
 
         public PrestadorServico PrestadorServico { get; set; }
 

@@ -1,5 +1,6 @@
 ﻿using EmissorNfse.Domain.Enums;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 
 namespace TesteEmissaoData.Resources
 {
@@ -21,9 +22,11 @@ namespace TesteEmissaoData.Resources
 
         public TipoTributacao TipoTributacao { get; set; }
 
+        [XmlIgnore]
         public ExigibilidadeIss ExigibilidadeIss { get; set; }
 
-        public IEnumerable<CondicaoPagamento> CondicaoPagamentoList { get; set; }
+        [XmlElement]
+        public CondicaoPagamento[] CondicaoPagamento { get; set; }
 
         public string NumeroProcesso { get; set; }
 
